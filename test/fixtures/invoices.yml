@@ -2,7 +2,7 @@ current:
   id: 1
   invoice_number: C30481
   total: 100.00
-  invoice_date: 2022-01-17 09:57:14
+  invoice_date: 2022-01-10 09:57:14
   status: Vigente
 
 cancelled:
