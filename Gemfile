@@ -42,6 +42,7 @@ group :development, :test do
 
   # To use env variables in development
   gem 'dotenv-rails'
+  gem 'pry-rails'
 end
 
 group :development do
