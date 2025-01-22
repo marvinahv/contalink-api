@@ -10,9 +10,10 @@ class SendSalesReportJob < ApplicationJob
                 .limit(10)
                 .pluck("DATE(invoice_date) AS day, SUM(total) AS total")
 
-    puts "Los 10 días que más ventas tuvieron al día de hoy son:"
-    top_days.each_with_index do |(date, total_sales), index|
-      puts "#{index + 1}. #{date.strftime('%A, %d de %B de %Y')} - Ventas: $#{'%.2f' % total_sales}"
-    end
+    # NOTE: change the user name and email as needed (or change to use dynamically)
+    user = OpenStruct.new(name: "Carlos Salinas", email: "csalinas@contalink.com")
+    SalesReportMailer.daily_sales_report(user, top_days).deliver_now
+
+    puts "Se ha enviado el reporte de ventas al correo #{user.email}"
   end
 end
