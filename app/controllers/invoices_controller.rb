@@ -12,7 +12,9 @@ class InvoicesController < ApplicationController
         
         # NOTE: adjust cache expiration time as needed
         invoices = Rails.cache.fetch(cache_key, expires_in: 1.hour) do
-          Invoice.where(invoice_date: from_date_parsed..to_date_parsed).to_a
+          Invoice.where(invoice_date: from_date_parsed..to_date_parsed)
+                 .order(:invoice_date)
+                 .to_a
         end
   
         render json: invoices, status: :ok
