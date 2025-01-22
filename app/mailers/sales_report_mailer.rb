@@ -1,4 +1,5 @@
 class SalesReportMailer < ApplicationMailer
+  # NOTE: change the default email as needed
   default from: 'no-reply@example.com'
 
   def daily_sales_report(user, top_days)
