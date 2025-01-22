@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <p>Hi, <%= @user.name %>,</p>
+
+    <p>Here is your daily sales report for the top 10 days with the highest sales, as of this morning:</p>
+
+    <table style="border-collapse: collapse; width: 400px;">
+      <thead>
+        <tr>
+          <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Date</th>
+          <th style="border: 1px solid #ddd; padding: 8px; text-align: right;">Total Sales</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @top_days.each do |date, total_sales| %>
+          <tr>
+            <td style="border: 1px solid #ddd; padding: 8px;"><%= date.strftime('%B %d, %Y') %></td>
+            <td style="border: 1px solid #ddd; padding: 8px; text-align: right;">$<%= number_with_precision(total_sales, precision: 2) %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+
+    <p>See you tomorrow morning!</p>
+  </body>
+</html>
