@@ -9,7 +9,8 @@
   DB_HOST=xxxxxx.xxxxx.xxx
   DB_USERNAME=xxxxxxx
   DB_PASSWORD=xxxxxxx
-  DB_DATABASE=xxxxxx 
+  DB_DATABASE=xxxxxx
+  WEB_APP_URL=http://localhost:4200
 ```
 4. Install dependencies with `bundle install`.
 
